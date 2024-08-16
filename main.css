@@ -1,0 +1,135 @@
+body {
+  background-color: hsl(0, 0%, 98%);
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+}
+.header-container h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: hsl(0, 0%, 17%);
+  margin-left: 80px;
+}
+.header-container button {
+  margin-left: auto;
+  margin-right: 80px;
+  padding: 10px 5px 10px 5px;
+  color: hsl(0, 1%, 29%);
+  background-color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+.header-container button:hover {
+  background-color: hsl(0, 0%, 98%);
+}
+.header-container button:focus {
+  outline: none;
+}
+.header-container button:active {
+  background-color: hsl(0, 0%, 95%);
+}
+.fa-moon {
+  margin-right: 0px;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 120px;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.search-bar {
+  display: flex;
+  justify-content: left;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: hsl(0, 0%, 17%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 0px 4px hsla(0, 0%, 0%, 0.1);
+}
+#search {
+  width: 450px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: hsl(0, 0%, 17%);
+  background-color: hsl(0, 0%, 100%);
+}
+#search:focus {
+  outline: none;
+}
+#search::placeholder {
+  color: hsl(0, 0%, 52%);
+}
+#search-button {
+  background-color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 5px;
+  padding: 0px 20px 0px 20px;
+  cursor: pointer;
+}
+.fa-search {
+  color: hsl(0, 0%, 52%);
+}
+
+#search-button:hover {
+  background-color: hsl(0, 0%, 90%);
+}
+#search-button:focus {
+  outline: none;
+}
+#search-button:active {
+  background-color: hsl(0, 0%, 80%);
+}
+.region-selector {
+  display: flex;
+  justify-self: right;
+  align-items: center;
+  margin-left: auto;
+}
+#region {
+  width: 200px;
+  height: 50px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: hsl(0, 0%, 17%);
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 0px 4px hsla(0, 0%, 0%, 0.1);
+  cursor: pointer;
+}
+#region:hover {
+  background-color: hsl(0, 0%, 98%);
+}
+#region:focus {
+  outline: none;
+}
