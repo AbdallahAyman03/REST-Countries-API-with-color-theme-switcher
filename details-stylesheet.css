@@ -1,0 +1,116 @@
+body {
+  background-color: hsl(0, 0%, 100%);
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  border-radius: px;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
+  padding: 0 80px;}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.my-word{
+  color: hsl(0, 0%, 17%);
+}
+
+.dark-mode-button {
+  font-size: inherit;
+  font-weight: bold;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  padding: 10px 5px 10px 5px;
+  color: hsl(0, 1%, 29%);
+  background-color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.dark-mode-icon {
+  margin-right: 4px;
+}
+
+.back-button {
+  margin: 80px;
+  font-size: inherit;
+  width: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px 10px 5px;
+  color: hsl(0, 1%, 29%);
+  background-color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px hsl(0deg 1.71% 43.66% / 67%);
+  text-decoration:none;
+}
+
+header button:hover {
+  background-color: hsl(0, 0%, 95%);
+}
+
+header button:focus {
+  outline: none;
+}
+
+header button:active {
+  background-color: hsl(0, 0%, 95%);
+}
+
+.back-icon {
+  margin-right: 4px;
+}
+
+.main {
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  gap:80px; 
+}
+
+.flage-container {
+  width:42%;
+}
+
+.flage {
+  object-fit: contain;
+  width:100%;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content:space-evenly;
+  width:42%;
+}
+
+.info h1 {
+ width: 400px;
+}
+
+.two-containers {
+  display: flex;
+  justify-content:space-between;
+  gap: 20px; 
+  padding-bottom: 50px; 
+}
+
+.category {
+    font-weight: bold;
+}
