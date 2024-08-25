@@ -50,14 +50,14 @@ body {
 }
 .main-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
   margin-top: 120px;
 }
 .search-container {
   display: flex;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
   margin-left: 80px;
   margin-right: 80px;
 }
@@ -113,6 +113,7 @@ body {
   justify-self: right;
   align-items: center;
   margin-left: auto;
+  margin-left: 80px;
 }
 #region {
   width: 200px;
@@ -132,4 +133,34 @@ body {
 }
 #region:focus {
   outline: none;
+}
+#countries {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 80px;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 40px;
+  grid-auto-rows: min-content;
+}
+.country {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 350px;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
+}
+.flag {
+  width: 100%;
+  height: 160px;
+  border-radius: 5px 5px 0px 0px;
+  object-fit: contain;
+}
+.flag img {
+  width: 100%;
+  height: 160px;
+  border-radius: 5px 5px 0px 0px;
+  object-fit: cover;
 }
