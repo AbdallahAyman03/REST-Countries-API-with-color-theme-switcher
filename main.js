@@ -7,10 +7,14 @@ let searchBtn = document.querySelector("#search-button");
 let searchBar = document.querySelector(".search-bar");
 let filter = document.querySelector("#region");
 let countries = document.querySelector("#countries");
-
+let specialCountry;
 let darkMode = false;
 let countryElm;
-const loadData = async (region) => {
+const loadData = async (region = "All", specialCountry = "") => {
+  let length = countries.children.length;
+  for (let i = 0; i < length; i++)
+    countries.removeChild(countries.firstElementChild);
+
   fetch("data.json")
     .then((response) => response.json())
     .then((data) => {
@@ -28,8 +32,15 @@ const loadData = async (region) => {
         <p><strong>Capital:</strong> ${country.capital}</p>
       </div>
       `;
-        if (region === "All" || region === country.region)
-          countries.insertAdjacentHTML("beforeend", countryCard.outerHTML);
+        if (
+          (region === "All" || region === country.region) &&
+          (specialCountry === country.name || specialCountry === "")
+        ) {
+          // if (specialCountry === "")
+          //   countries.insertAdjacentHTML("beforeend", countryCard.outerHTML);
+          // else
+          countries.appendChild(countryCard);
+        }
       });
       countryElm = document.querySelectorAll(".country");
       if (darkMode) {
@@ -62,7 +73,7 @@ let changeTheme = function () {
     header.style.backgroundColor = "#ffffff";
     h1.style.color = "hsl(0, 0%, 17%)";
     search.style.backgroundColor = "#ffffff";
-    search.style.backgroundColor = "#ffffff";
+    search.style.color = "hsl(0, 0%, 17%)";
     searchBtn.style.color = "hsl(0, 0%, 17%)";
     searchBtn.style.backgroundColor = "#ffffff";
     searchBar.style.backgroundColor = "#ffffff";
@@ -82,7 +93,7 @@ let changeTheme = function () {
     header.style.backgroundColor = "hsl(210deg 21.82% 21.57%)";
     h1.style.color = "#ffffff";
     search.style.backgroundColor = "hsl(210deg 21.82% 21.57%)";
-    search.style.backgroundColor = "hsl(210deg 21.82% 21.57%)";
+    search.style.color = "hsl(0deg 0% 70%)";
     searchBtn.style.color = "hsl(0deg 0% 70%)";
     searchBtn.style.backgroundColor = "hsl(210deg 21.82% 21.57%)";
     searchBar.style.backgroundColor = "hsl(210deg 21.82% 21.57%)";
@@ -96,6 +107,11 @@ let changeTheme = function () {
   }
 };
 darkBtn.addEventListener("click", changeTheme);
+
+searchBtn.onclick = function () {
+  specialCountry = search.value;
+  loadData(region.value, specialCountry);
+};
 
 // document.addEventListener("click", function (element) {
 //   if (element.target.getAttribute("id") === "light-switcher") {
