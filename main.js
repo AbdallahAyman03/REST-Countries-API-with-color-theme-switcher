@@ -21,11 +21,12 @@ const loadData = async (region = "All", specialCountry = "") => {
       data.forEach((country) => {
         let countryCard = document.createElement("div");
         countryCard.classList.add("country");
+        countryCard.setAttribute("id", `${country.name}`);
         countryCard.innerHTML = `
-      <div class="flag">
-        <img src="${country.flag}" alt="flag" />
+      <div class="flag" >
+        <img src="${country.flag}" alt="${country.name}-flag" id="${country.name}-flag" class ="img"/>
       </div>
-      <div class="country-info">
+      <div class="country-info" id="${country.name}-info">
         <h2>${country.name}</h2>
         <p><strong>Population:</strong> ${country.population}</p>
         <p><strong>Region:</strong> ${country.region}</p>
@@ -113,21 +114,62 @@ searchBtn.onclick = function () {
   loadData(region.value, specialCountry);
 };
 
-// document.addEventListener("click", function (element) {
-//   if (element.target.getAttribute("id") === "light-switcher") {
-//     this.textContent = "Dark Mode";
-//     this.style.backgroundColor = "#ffffff";
-//     this.style.color = "#ffffff";
-//     this.setAttribute("id", "theme-switcher");
-//     body.style.backgroundColor = "#ffffff";
-//     header.style.backgroundColor = "#ffffff";
-//     h1.style.color = "hsl(0, 0%, 17%)";
-//     search.style.backgroundColor = "#ffffff";
-//     search.style.backgroundColor = "#ffffff";
-//     searchBtn.style.color = "hsl(0, 0%, 17%)";
-//     searchBtn.style.backgroundColor = "#ffffff";
-//     searchBar.style.backgroundColor = "#ffffff";
-//     filter.style.backgroundColor = "#ffffff";
-//     filter.style.color = "hsl(0, 0%, 17%)";
-//   }
-// });
+document.addEventListener("click", function (ele) {
+  if (
+    ele.target.className === `country` ||
+    ele.target.className === `img` ||
+    ele.target.className === `country-info`
+  ) {
+    let countryName = ele.target.getAttribute("id").split("-")[0];
+
+    setTimeout(function () {
+      window.open("/REST-Countries-API-with-color-theme-switcher/details.html");
+      loadDetails(countryName);
+    }, 500);
+  }
+});
+let main = document.querySelector(`.main`);
+const loadDetails = async (countryName) => {
+  fetch("data.json")
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((country) => {
+        if (country.name === countryName) {
+          let details = document.createElement("div");
+          details.classList.add("details");
+          details.innerHTML = `
+          <div class="flage-container">
+            <img class="flage" src="${country.flag}">
+        </div>
+        <div class="info">
+            <h1>${country.name}</h1>
+            <br>
+            <div class="two-containers">
+                <div>
+                    <p>
+                        <span class="category">Native Name</span>: ${country.nativename}<br>
+                        <span class="category">Population</span>: ${country.population}<br>
+                        <span class="category">Region</span>: ${country.region}<br>
+                        <span class="category">Sub Region</span>: ${country.subregion}<br>
+                        <span class="category">Capital</span>: ${country.capital}<br>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <span class="category">Top Level Domain</span>: ${country.topLevelDomain}<br>
+                        <span class="category">Currencies</span>: ${country.currencies.name}<br>
+                        <span class="category">Languages</span>: ${country.languages[0].name}<br>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <p><span class="category">Border Countries</span>:</p>
+            </div>
+        </div>
+    </div>
+          `;
+          main.appendChild(details);
+        }
+      });
+    });
+};
