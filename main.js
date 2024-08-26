@@ -9,7 +9,7 @@ let filter = document.querySelector("#region");
 let countries = document.querySelector("#countries");
 let specialCountry;
 let darkMode = false;
-let countryElm;
+let countryElm, countryInfoH2, countryInfoP, countryInfoSpan;
 const loadData = async (region = "All", specialCountry = "") => {
   let length = countries.children.length;
   for (let i = 0; i < length; i++)
@@ -44,12 +44,34 @@ const loadData = async (region = "All", specialCountry = "") => {
         }
       });
       countryElm = document.querySelectorAll(".country");
+      countryInfo = document.querySelectorAll(".country-info");
+      countryInfoH2 = document.querySelectorAll(".country-info h2");
+      countryInfoP = document.querySelectorAll(".country-info p");
+      countryInfoSpan = document.querySelectorAll(".country-info span");
       if (darkMode) {
+        countryInfoH2.forEach((country) => {
+          country.style.color = "hsl(0, 0%, 100%)";
+        });
+        countryInfoP.forEach((country) => {
+          country.style.color = "hsl(0, 0%, 95%)";
+        });
+        countryInfoSpan.forEach((country) => {
+          country.style.color = "hsl(0, 0%, 98%)";
+        });
         countryElm.forEach((country) => {
           country.style.backgroundColor = "hsl(210deg 21.82% 21.57%)";
           country.style.color = "#ffffff";
         });
       } else {
+        countryInfoH2.forEach((country) => {
+          country.style.color = "hsl(0, 0%, 17%)";
+        });
+        countryInfoP.forEach((country) => {
+          country.style.color = "hsl(0, 0%, 17%)";
+        });
+        countryInfoSpan.forEach((country) => {
+          country.style.color = "hsl(0, 0%, 17%)";
+        });
         countryElm.forEach((country) => {
           country.style.backgroundColor = "#ffffff";
           country.style.color = "hsl(0, 0%, 17%)";
@@ -80,6 +102,16 @@ let changeTheme = function () {
     searchBar.style.backgroundColor = "#ffffff";
     filter.style.backgroundColor = "#ffffff";
     filter.style.color = "hsl(0, 0%, 17%)";
+
+    countryInfoH2.forEach((country) => {
+      country.style.color = "hsl(0, 0%, 17%)";
+    });
+    countryInfoP.forEach((country) => {
+      country.style.color = "hsl(0, 0%, 17%)";
+    });
+    countryInfoSpan.forEach((country) => {
+      country.style.color = "hsl(0, 0%, 17%)";
+    });
     countryElm.forEach((country) => {
       country.style.backgroundColor = "#ffffff";
       country.style.color = "hsl(0, 0%, 17%)";
@@ -101,6 +133,15 @@ let changeTheme = function () {
     filter.style.backgroundColor = "hsl(210deg 21.82% 21.57%)";
     filter.style.color = "hsl(0deg 0% 70%)";
 
+    countryInfoH2.forEach((country) => {
+      country.style.color = "hsl(0, 0%, 100%)";
+    });
+    countryInfoP.forEach((country) => {
+      country.style.color = "hsl(0, 0%, 95%)";
+    });
+    countryInfoSpan.forEach((country) => {
+      country.style.color = "hsl(0, 0%, 98%)";
+    });
     countryElm.forEach((country) => {
       country.style.backgroundColor = "hsl(210deg 21.82% 21.57%)";
       country.style.color = "#ffffff";

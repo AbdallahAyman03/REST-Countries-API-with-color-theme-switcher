@@ -50,9 +50,9 @@ body {
 }
 .main-container {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   margin-top: 120px;
+  margin-bottom: 80px;
 }
 .search-container {
   display: flex;
@@ -141,13 +141,12 @@ body {
   margin-left: 80px;
   margin-right: 80px;
   margin-top: 40px;
-  grid-auto-rows: min-content;
 }
 .country {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 350px;
+  height: 380px;
   border-radius: 5px;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
@@ -163,4 +162,24 @@ body {
   height: 160px;
   border-radius: 5px 5px 0px 0px;
   object-fit: cover;
+}
+.country-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  object-fit: contain;
+}
+.country-info h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: hsl(0, 0%, 17%);
+  margin-bottom: 15px;
+  text-align: center;
+}
+.country-info p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: hsl(0, 0%, 52%);
+  line-height: 0%;
 }
