@@ -150,6 +150,10 @@ body {
   border-radius: 5px;
   background-color: hsl(0, 0%, 100%);
   box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  object-fit: contain;
+  text-decoration: none;
 }
 .flag {
   width: 100%;
@@ -182,4 +186,18 @@ body {
   font-weight: 300;
   color: hsl(0, 0%, 52%);
   line-height: 0%;
+}
+.country:hover {
+  background-color: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
+}
+.country:focus {
+  outline: none;
+}
+.country:active {
+  background-color: hsl(0, 0%, 95%);
+}
+.country-info:hover {
+  color: hsl(0, 0%, 50%);
+  background-color: hsl(0, 0%, 40%);
 }

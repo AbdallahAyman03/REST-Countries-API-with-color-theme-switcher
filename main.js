@@ -11,23 +11,21 @@ let specialCountry;
 let darkMode = false;
 let countryElm, countryInfoH2, countryInfoP, countryInfoSpan;
 const loadData = async (region = "All", specialCountry = "") => {
-  let length = countries.children.length;
-  for (let i = 0; i < length; i++)
-    countries.removeChild(countries.firstElementChild);
+  countries.innerHTML = "";
 
-  fetch("data.json")
+  fetch("https://restcountries.com/v3.1/all")
     .then((response) => response.json())
     .then((data) => {
       data.forEach((country) => {
-        let countryCard = document.createElement("div");
+        let countryCard = document.createElement("a");
         countryCard.classList.add("country");
-        countryCard.setAttribute("id", `${country.name}`);
+        countryCard.href = `details.html?name=${country.name.common}`;
+        countryCard.setAttribute("id", `${country.name.common}`);
         countryCard.innerHTML = `
       <div class="flag" >
-        <img src="${country.flag}" alt="${country.name}-flag" id="${country.name}-flag" class ="img"/>
-      </div>
-      <div class="country-info" id="${country.name}-info">
-        <h2>${country.name}</h2>
+        <img src="${country.flags.png}" alt="${country.name.common}-flag" id="${country.name.common}-flag" class ="img"/>
+      <div class="country-info" id="${country.name.common}-info">
+        <h2>${country.name.common}</h2>
         <p><strong>Population:</strong> ${country.population}</p>
         <p><strong>Region:</strong> ${country.region}</p>
         <p><strong>Capital:</strong> ${country.capital}</p>
@@ -35,11 +33,11 @@ const loadData = async (region = "All", specialCountry = "") => {
       `;
         if (
           (region === "All" || region === country.region) &&
-          (specialCountry === country.name || specialCountry === "")
+          (specialCountry === "" ||
+            String(country.name.common)
+              .toLowerCase()
+              .includes(specialCountry.toLowerCase()))
         ) {
-          // if (specialCountry === "")
-          //   countries.insertAdjacentHTML("beforeend", countryCard.outerHTML);
-          // else
           countries.appendChild(countryCard);
         }
       });
@@ -153,64 +151,4 @@ darkBtn.addEventListener("click", changeTheme);
 searchBtn.onclick = function () {
   specialCountry = search.value;
   loadData(region.value, specialCountry);
-};
-
-document.addEventListener("click", function (ele) {
-  if (
-    ele.target.className === `country` ||
-    ele.target.className === `img` ||
-    ele.target.className === `country-info`
-  ) {
-    let countryName = ele.target.getAttribute("id").split("-")[0];
-
-    setTimeout(function () {
-      window.open("/REST-Countries-API-with-color-theme-switcher/details.html");
-      loadDetails(countryName);
-    }, 500);
-  }
-});
-let main = document.querySelector(`.main`);
-const loadDetails = async (countryName) => {
-  fetch("data.json")
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((country) => {
-        if (country.name === countryName) {
-          let details = document.createElement("div");
-          details.classList.add("details");
-          details.innerHTML = `
-          <div class="flage-container">
-            <img class="flage" src="${country.flag}">
-        </div>
-        <div class="info">
-            <h1>${country.name}</h1>
-            <br>
-            <div class="two-containers">
-                <div>
-                    <p>
-                        <span class="category">Native Name</span>: ${country.nativename}<br>
-                        <span class="category">Population</span>: ${country.population}<br>
-                        <span class="category">Region</span>: ${country.region}<br>
-                        <span class="category">Sub Region</span>: ${country.subregion}<br>
-                        <span class="category">Capital</span>: ${country.capital}<br>
-                    </p>
-                </div>
-                <div>
-                    <p>
-                        <span class="category">Top Level Domain</span>: ${country.topLevelDomain}<br>
-                        <span class="category">Currencies</span>: ${country.currencies.name}<br>
-                        <span class="category">Languages</span>: ${country.languages[0].name}<br>
-                    </p>
-                </div>
-            </div>
-            <div>
-                <p><span class="category">Border Countries</span>:</p>
-            </div>
-        </div>
-    </div>
-          `;
-          main.appendChild(details);
-        }
-      });
-    });
 };
