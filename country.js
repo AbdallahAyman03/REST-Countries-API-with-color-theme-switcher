@@ -64,17 +64,34 @@ fetch(
     console.log(country);
   });
 darkBTN.addEventListener("click", () => {
+  let backBtn = document.querySelector(".back-button");
+  let header = document.querySelector("header");
+  let headerH1 = document.querySelector(".my-word");
+  let countryName = document.querySelector(".country-info h2");
+
   if (darkMode) {
     darkMode = false;
     document.body.style.backgroundColor = "hsl(0, 0%, 98%)";
     document.body.style.color = "hsl(200, 15%, 8%)";
-    darkBTN.style.backgroundColor = "hsl(209, 23%, 22%)";
-    darkBTN.style.color = "hsl(0, 0%, 100%)";
+    darkBTN.style.backgroundColor = "hsl(0, 0%, 100%)";
+    darkBTN.style.color = "hsl(200, 15%, 8%)";
+    backBtn.style.backgroundColor = "hsl(0,0%, 100%)";
+    backBtn.style.color = "hsl(209, 23%, 22%)";
+    header.style.color = "hsl(209, 23%, 22%)";
+    header.style.backgroundColor = "hsl(0,0%, 100%)";
+    headerH1.style.color = "hsl(209, 23%, 22%)";
+    countryName.style.color = "hsl(209, 23%, 22%)";
   } else {
     darkMode = true;
     document.body.style.backgroundColor = "hsl(207, 26%, 17%)";
     document.body.style.color = "hsl(0, 0%, 100%)";
-    darkBTN.style.backgroundColor = "hsl(0, 0%, 100%)";
-    darkBTN.style.color = "hsl(200, 15%, 8%)";
+    darkBTN.style.backgroundColor = "hsl(209, 23%, 22%)";
+    darkBTN.style.color = "hsl(0, 0%, 100%)";
+    backBtn.style.backgroundColor = "hsl(209, 23%, 22%)";
+    backBtn.style.color = "hsl(0, 0%, 100%)";
+    header.style.color = "hsl(0, 0%, 100%)";
+    header.style.backgroundColor = "hsl(209, 23%, 22%)";
+    headerH1.style.color = "hsl(0, 0%, 100%)";
+    countryName.style.color = "hsl(0, 0%, 100%)";
   }
 });
