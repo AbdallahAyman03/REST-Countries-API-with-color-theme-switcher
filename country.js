@@ -68,6 +68,7 @@ darkBTN.addEventListener("click", () => {
   let header = document.querySelector("header");
   let headerH1 = document.querySelector(".my-word");
   let countryName = document.querySelector(".country-info h2");
+  let bordersBtn = document.querySelectorAll(".border-button");
 
   if (darkMode) {
     darkMode = false;
@@ -81,6 +82,10 @@ darkBTN.addEventListener("click", () => {
     header.style.backgroundColor = "hsl(0,0%, 100%)";
     headerH1.style.color = "hsl(209, 23%, 22%)";
     countryName.style.color = "hsl(209, 23%, 22%)";
+    bordersBtn.forEach((border) => {
+      border.style.backgroundColor = "hsl(0, 0%, 100%)";
+      border.style.color = "hsl(209, 23%, 22%)";
+    });
   } else {
     darkMode = true;
     document.body.style.backgroundColor = "hsl(207, 26%, 17%)";
@@ -93,5 +98,9 @@ darkBTN.addEventListener("click", () => {
     header.style.backgroundColor = "hsl(209, 23%, 22%)";
     headerH1.style.color = "hsl(0, 0%, 100%)";
     countryName.style.color = "hsl(0, 0%, 100%)";
+    bordersBtn.forEach((border) => {
+      border.style.backgroundColor = "hsl(209, 23%, 22%)";
+      border.style.color = "hsl(0, 0%, 100%)";
+    });
   }
 });

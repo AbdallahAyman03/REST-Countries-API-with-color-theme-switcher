@@ -162,7 +162,7 @@ header button:active {
   background-color: hsl(0, 0%, 95%);
 }
 
-@media (max-width: 376px) {
+@media (max-width: 426px) {
   p {
     font-size: 14px;
     font-weight: 600;
@@ -281,5 +281,80 @@ header button:active {
     color: hsl(0, 0%, 42%);
     font-weight: 300;
     font-size: 1rem;
+  }
+}
+@media (max-width: 769px) {
+  p {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    border-radius: 2px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.1);
+    padding: 0 10px;
+  }
+
+  header h1 {
+    font-size: 16px;
+    font-weight: 800;
+  }
+  .dark-mode-button {
+    font-size: 10px;
+    font-weight: 400;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 4px 2px;
+    color: hsl(0, 1%, 29%);
+    background-color: hsl(0, 0%, 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .back-button {
+    margin: 50px 25px;
+    font-size: 10px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 2px;
+    color: hsl(0, 1%, 29%);
+    background-color: hsl(0, 0%, 100%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px hsl(0deg 1.71% 43.66% / 67%);
+    text-decoration: none;
+  }
+  .main {
+    padding: 0 25px;
+    display: block;
+  }
+
+  .country {
+    width: 100%;
+    height: max-content;
+    display: block;
+  }
+  .country-info {
+    display: block;
+  }
+  .flag {
+    border: none;
+    flex-basis: 43%;
+    box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.1);
+    margin-bottom: auto;
+  }
+  .img {
+    width: 100%;
+    object-fit: contain;
   }
 }
